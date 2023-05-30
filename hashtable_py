@@ -1,0 +1,37 @@
+class HashTable:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.table = [None] * self.capacity
+
+    def hash_function(self, key):
+        sum = 0
+        for char in key:
+            sum += ord(char)
+            hash = sum % 10000
+        return hash
+
+    def insert(self, key, value):
+        hash = self.hash_function(key)
+        if self.table[hash]:
+            print(f"The key {key} already exists, if you want to update it, call the update() function, otherwise, change your key")
+        else:
+            self.table[hash] = value
+            return value
+
+    def get(self, key):
+        hash = self.hash_function(key)
+        if self.table[hash]:
+            return self.table[hash]
+
+    def update(self, key, value):
+        hash = self.hash_function(key)
+        self.table[hash] = value
+
+
+hashtable = HashTable(10000)
+print(hashtable.table[3])
+hashtable.insert("Shushan", '095888323')
+print(hashtable.get("Shushan"))
+hashtable.insert("Shushan", '099888976')
+hashtable.update("Shushan", '099888976')
+print(hashtable.get("Shushan"))
