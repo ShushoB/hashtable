@@ -27,11 +27,3 @@ class HashTable:
         hash = self.hash_function(key)
         self.table[hash] = value
 
-
-hashtable = HashTable(10000)
-print(hashtable.table[3])
-hashtable.insert("Shushan", '095888323')
-print(hashtable.get("Shushan"))
-hashtable.insert("Shushan", '099888976')
-hashtable.update("Shushan", '099888976')
-print(hashtable.get("Shushan"))
